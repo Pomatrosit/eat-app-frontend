@@ -1,6 +1,6 @@
-import { IFormControl } from "../types/formControl"
+import { IRegistrationFormControl } from "../types/formControl"
 
-export const registrationFormControls: IFormControl[] = [
+export const REGISTRATION_FORM_CONTROLS: IRegistrationFormControl[] = [
   {
     id: 1,
     name: "firstName",
