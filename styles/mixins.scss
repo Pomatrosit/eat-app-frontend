@@ -2,7 +2,7 @@
 
 @mixin flex(
   $alignItems: center,
-  $justifyContent: flex-start,
+  $justifyContent: center,
   $direction: row,
   $wrap: no-wrap
 ) {
@@ -13,15 +13,15 @@
   flex-wrap: $wrap;
 }
 
-@mixin paper($padding: 20px) {
+@mixin paper($padding: 2rem) {
   background: linear-gradient(
     151.83deg,
     rgba(254, 254, 254, 0.6) 0%,
     rgba(254, 254, 254, 0.15) 100%
   );
-  border: 1px solid #6c6d8a;
-  box-shadow: 10px 10px 10px rgba(238, 238, 238, 0.25);
+  border: 1px solid $secondaryColor;
+  box-shadow: 1rem 1rem 1rem rgba(238, 238, 238, 0.25);
   backdrop-filter: blur(4px);
-  border-radius: 15px;
+  border-radius: 1.5rem;
   padding: $padding;
 }
