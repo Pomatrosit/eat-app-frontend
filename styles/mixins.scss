@@ -1,0 +1,27 @@
+@import "./variables.scss";
+
+@mixin flex(
+  $alignItems: center,
+  $justifyContent: flex-start,
+  $direction: row,
+  $wrap: no-wrap
+) {
+  display: flex;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+
+@mixin paper($padding: 20px) {
+  background: linear-gradient(
+    151.83deg,
+    rgba(254, 254, 254, 0.6) 0%,
+    rgba(254, 254, 254, 0.15) 100%
+  );
+  border: 1px solid #6c6d8a;
+  box-shadow: 10px 10px 10px rgba(238, 238, 238, 0.25);
+  backdrop-filter: blur(4px);
+  border-radius: 15px;
+  padding: $padding;
+}
