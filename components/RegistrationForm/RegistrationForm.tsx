@@ -1,8 +1,19 @@
-import { FC, useState } from "react"
+import { FC, useContext, useState } from "react"
 import classes from "../../styles/common/Auth.module.scss"
 import TextField from "../../ui/TextField/TextField"
-import { IRegistrationFormState } from "../../types/registrationFormState"
-import { registrationFormControls } from "../../constants/registrationFormControls"
+import { REGISTRATION_FORM_CONTROLS } from "../../constants/registrationFormControls"
+import { CommonCtx, ICommonContext } from "../../context/common"
+import Button from "../../ui/Button/Button"
+import Link from "next/link"
+
+export interface IRegistrationFormState {
+  firstName: string
+  lastName: string
+  birthDate: string
+  email: string
+  password: string
+  confirmedPassword: string
+}
 
 const RegistrationForm: FC = () => {
   const [form, setForm] = useState<IRegistrationFormState>({
@@ -18,12 +29,14 @@ const RegistrationForm: FC = () => {
     console.log(form)
   }
 
+  const { appName } = useContext<ICommonContext>(CommonCtx)
+
   return (
     <div className={classes.form}>
-      <h1 className={classes.title}>Eat App</h1>
+      <h1 className={classes.title}>{appName}</h1>
       <h3 className={classes.subtitle}>Регистрация</h3>
 
-      {registrationFormControls.map((formControl) => (
+      {REGISTRATION_FORM_CONTROLS.map((formControl) => (
         <TextField
           key={formControl.id}
           name={formControl.name}
@@ -35,6 +48,22 @@ const RegistrationForm: FC = () => {
           setValue={setForm}
         />
       ))}
+
+      <Button
+        text='Зарегистрироваться'
+        onClick={onRegistrationButtonClick}
+        margin='4rem auto 2rem auto'
+        width='25rem'
+      />
+
+      <div className={classes.ctaText}>
+        У вас уже есть аккаунт?{" "}
+        <Link href='/login'>
+          <a>
+            <span className={classes.ctaText__inner}>Войдите</span>{" "}
+          </a>
+        </Link>
+      </div>
     </div>
   )
 }

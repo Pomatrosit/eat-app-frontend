@@ -4,13 +4,14 @@
 .input {
   outline: none;
   width: 100%;
-  background: #ffffff;
-  border: 1px solid #6c6d8a;
+  background: $pureWhite;
+  border: 1px solid $secondaryColor;
   border-radius: 1.5rem;
   height: 3.7rem;
   padding: 0 1.5rem;
   transition: 0.3s;
   font-family: "Montserrat", sans-serif;
+  font-size: 1.4rem;
   color: $primaryColor;
 
   &:focus {
@@ -33,7 +34,7 @@
 
 .textField .label {
   font-size: 1.4rem;
-  color: #272848;
+  color: $primaryColor;
   font-weight: 400;
   text-align: left;
   margin-bottom: 0.7rem;
