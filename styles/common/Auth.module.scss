@@ -1,0 +1,28 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
+.form {
+  text-align: center;
+  width: 54rem;
+  @include paper(2rem);
+
+  .title {
+    color: $primaryColor;
+    font-weight: 600;
+    font-size: 2.4rem;
+    margin-bottom: 1.9rem;
+  }
+
+  .subtitle {
+    margin-bottom: 3.1rem;
+    font-size: 2rem;
+    color: #6c6d8a;
+    font-weight: 400;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .form {
+    width: 45rem;
+  }
+}

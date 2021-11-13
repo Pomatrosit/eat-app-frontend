@@ -1,5 +1,5 @@
 import { FC } from "react"
-import classes from "../../styles/Auth.module.scss"
+import classes from "../../styles/common/Auth.module.scss"
 
 const LoginForm: FC = () => {
   return (
