@@ -1,7 +1,7 @@
-@import "../../styles/variables.scss";
-@import "../../styles/mixins.scss";
+@import "./styles/variables.scss";
+@import "./styles/mixins.scss";
 
-.loginForm {
+.form {
   text-align: center;
   width: 540px;
   @include paper(20px);

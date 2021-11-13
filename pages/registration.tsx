@@ -1,7 +1,8 @@
 import type { NextPage } from "next"
+import RegistrationForm from "../components/RegistrationForm/RegistrationForm"
 
 const RegistrationPage: NextPage = () => {
-  return <div className='div'>123</div>
+  return <RegistrationForm></RegistrationForm>
 }
 
 export default RegistrationPage
