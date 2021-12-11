@@ -1,6 +1,6 @@
 import { ILoginFormControl } from "../types/formControl";
 
-export const LOGIN_FORM_CONTROLS = [
+export const LOGIN_FORM_CONTROLS: ILoginFormControl[] = [
   {
     id: 1,
     name: "email",
