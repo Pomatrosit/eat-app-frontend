@@ -1,6 +1,6 @@
-import { IRegistrationFormControl } from "../types/formControl"
+import { IRegistrationFormControl } from "../types/formControl";
 
-export const REGISTRATION_FORM_CONTROLS: IRegistrationFormControl[] = [
+export const REGISTRATION_FORM_CONTROLS = [
   {
     id: 1,
     name: "firstName",
@@ -43,4 +43,4 @@ export const REGISTRATION_FORM_CONTROLS: IRegistrationFormControl[] = [
     placeholder: "",
     type: "password",
   },
-]
+];
