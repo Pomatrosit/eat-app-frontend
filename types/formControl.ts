@@ -1,9 +1,9 @@
 export interface IRegistrationFormControl {
   id: number;
   name:
-    | "firstName"
-    | "lastName"
-    | "birthDate"
+    | "name"
+    | "surname"
+    | "birthday"
     | "email"
     | "password"
     | "confirmedPassword";

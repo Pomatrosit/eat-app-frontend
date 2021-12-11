@@ -3,21 +3,21 @@ import { IRegistrationFormControl } from "../types/formControl";
 export const REGISTRATION_FORM_CONTROLS: IRegistrationFormControl[] = [
   {
     id: 1,
-    name: "firstName",
+    name: "name",
     label: "Имя",
     placeholder: "Введите ваше имя",
     type: "text",
   },
   {
     id: 2,
-    name: "lastName",
+    name: "surname",
     label: "Фамилия",
     placeholder: "Введите вашу фамилию",
     type: "text",
   },
   {
     id: 3,
-    name: "birthDate",
+    name: "birthday",
     label: "Дата рождения",
     placeholder: "",
     type: "date",
