@@ -1,21 +1,21 @@
 export interface IRegistrationFormControl {
-  id: number
+  id: number;
   name:
     | "firstName"
     | "lastName"
     | "birthDate"
     | "email"
     | "password"
-    | "confirmedPassword"
-  label: string
-  placeholder: string
-  type: string
+    | "confirmedPassword";
+  label: string;
+  placeholder: string;
+  type: string;
 }
 
 export interface ILoginFormControl {
-  id: number
-  name: "email" | "password"
-  label: string
-  placeholder: string
-  type: string
+  id: number;
+  name: "email" | "password";
+  label: string;
+  placeholder: string;
+  type: string;
 }

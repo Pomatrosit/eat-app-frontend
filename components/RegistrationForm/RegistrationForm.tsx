@@ -1,35 +1,46 @@
-import { FC, useContext, useState } from "react"
-import classes from "../../styles/common/Auth.module.scss"
-import TextField from "../../ui/TextField/TextField"
-import { REGISTRATION_FORM_CONTROLS } from "../../constants/registrationFormControls"
-import { CommonCtx, ICommonContext } from "../../context/common"
-import Button from "../../ui/Button/Button"
-import Link from "next/link"
+import { FC, useContext, useState } from "react";
+import classes from "../../styles/common/Auth.module.scss";
+import TextField from "../../ui/TextField/TextField";
+import { REGISTRATION_FORM_CONTROLS } from "../../constants/registrationFormControls";
+import { CommonCtx, ICommonContext } from "../../context/common";
+import Button from "../../ui/Button/Button";
+import Link from "next/link";
+import { InputState } from "../../types/inputState";
+import { initialInputState } from "../../constants/initialInputState";
 
 export interface IRegistrationFormState {
-  firstName: string
-  lastName: string
-  birthDate: string
-  email: string
-  password: string
-  confirmedPassword: string
+  firstName: InputState;
+  lastName: InputState;
+  birthDate: InputState;
+  email: InputState;
+  password: InputState;
+  confirmedPassword: InputState;
 }
 
 const RegistrationForm: FC = () => {
   const [form, setForm] = useState<IRegistrationFormState>({
-    firstName: "",
-    lastName: "",
-    birthDate: "",
-    email: "",
-    password: "",
-    confirmedPassword: "",
-  })
+    firstName: initialInputState,
+    lastName: initialInputState,
+    birthDate: initialInputState,
+    email: initialInputState,
+    password: initialInputState,
+    confirmedPassword: initialInputState,
+  });
 
   const onRegistrationButtonClick = () => {
-    console.log(form)
-  }
+    const data = {
+      firstName: form.firstName.value,
+      lastName: form.lastName.value,
+      birthDate: form.birthDate.value,
+      email: form.email.value,
+      password: form.password.value,
+    };
+    console.log(data);
+  };
 
-  const { appName } = useContext<ICommonContext>(CommonCtx)
+  const { appName } = useContext<ICommonContext>(CommonCtx);
+
+  console.log("api url", process.env.NEXT_PUBLIC_API_URL);
 
   return (
     <div className={classes.form}>
@@ -43,29 +54,32 @@ const RegistrationForm: FC = () => {
           label={formControl.label}
           placeholder={formControl.placeholder}
           type={formControl.type}
-          margin='0 0 1.5rem 0'
-          value={String(form[formControl.name])}
+          margin="0 0 1.5rem 0"
+          value={String(form[formControl.name].value)}
           setValue={setForm}
+          isError={form[formControl.name].isError}
+          isSuccess={form[formControl.name].isSuccess}
+          errorMessage={form[formControl.name].errorMessage}
         />
       ))}
 
       <Button
-        text='Зарегистрироваться'
+        text="Зарегистрироваться"
         onClick={onRegistrationButtonClick}
-        margin='4rem auto 2rem auto'
-        width='25rem'
+        margin="4rem auto 2rem auto"
+        width="25rem"
       />
 
       <div className={classes.ctaText}>
         У вас уже есть аккаунт?{" "}
-        <Link href='/login'>
+        <Link href="/login">
           <a>
             <span className={classes.ctaText__inner}>Войдите</span>{" "}
           </a>
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RegistrationForm
+export default RegistrationForm;
