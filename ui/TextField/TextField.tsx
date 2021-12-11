@@ -1,15 +1,14 @@
-import { FC, Dispatch, SetStateAction } from "react"
-import classes from "./TextField.module.scss"
-import { IRegistrationFormState } from "../../types/registrationFormState"
+import { FC, Dispatch, SetStateAction } from "react";
+import classes from "./TextField.module.scss";
 
 interface TextFieldProps {
-  name: string
-  value: any
-  setValue: Dispatch<SetStateAction<any>>
-  placeholder?: string
-  type?: string
-  margin?: string
-  label?: string
+  name: string;
+  value: any;
+  setValue: Dispatch<SetStateAction<any>>;
+  placeholder?: string;
+  type?: string;
+  margin?: string;
+  label?: string;
 }
 
 const TextField: FC<TextFieldProps> = ({
@@ -31,14 +30,14 @@ const TextField: FC<TextFieldProps> = ({
         name={name}
         value={value}
         onChange={(e) =>
-          setValue((prev: IRegistrationFormState) => ({
+          setValue((prev: any) => ({
             ...prev,
             [e.target.name]: e.target.value,
           }))
         }
       />
     </div>
-  )
-}
+  );
+};
 
-export default TextField
+export default TextField;
