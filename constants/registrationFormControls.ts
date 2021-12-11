@@ -1,6 +1,6 @@
 import { IRegistrationFormControl } from "../types/formControl";
 
-export const REGISTRATION_FORM_CONTROLS = [
+export const REGISTRATION_FORM_CONTROLS: IRegistrationFormControl[] = [
   {
     id: 1,
     name: "firstName",
