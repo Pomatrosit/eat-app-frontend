@@ -7,11 +7,12 @@ import Button from "../../ui/Button/Button";
 import Link from "next/link";
 import { InputState } from "../../types/inputState";
 import { initialInputState } from "../../constants/initialInputState";
+import axios from "axios";
 
 export interface IRegistrationFormState {
-  firstName: InputState;
-  lastName: InputState;
-  birthDate: InputState;
+  name: InputState;
+  surname: InputState;
+  birthday: InputState;
   email: InputState;
   password: InputState;
   confirmedPassword: InputState;
@@ -19,9 +20,9 @@ export interface IRegistrationFormState {
 
 const RegistrationForm: FC = () => {
   const [form, setForm] = useState<IRegistrationFormState>({
-    firstName: initialInputState,
-    lastName: initialInputState,
-    birthDate: initialInputState,
+    name: initialInputState,
+    surname: initialInputState,
+    birthday: initialInputState,
     email: initialInputState,
     password: initialInputState,
     confirmedPassword: initialInputState,
@@ -29,18 +30,26 @@ const RegistrationForm: FC = () => {
 
   const onRegistrationButtonClick = () => {
     const data = {
-      firstName: form.firstName.value,
-      lastName: form.lastName.value,
-      birthDate: form.birthDate.value,
+      name: form.name.value,
+      surname: form.surname.value,
+      birthday: form.birthday.value,
       email: form.email.value,
       password: form.password.value,
     };
+
     console.log(data);
+
+    axios
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/registration`, data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const { appName } = useContext<ICommonContext>(CommonCtx);
-
-  console.log("api url", process.env.NEXT_PUBLIC_API_URL);
 
   return (
     <div className={classes.form}>
