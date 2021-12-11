@@ -1,6 +1,6 @@
-import { ILoginFormControl } from "../types/formControl"
+import { ILoginFormControl } from "../types/formControl";
 
-export const LOGIN_FORM_CONTROLS: ILoginFormControl[] = [
+export const LOGIN_FORM_CONTROLS = [
   {
     id: 1,
     name: "email",
@@ -15,4 +15,4 @@ export const LOGIN_FORM_CONTROLS: ILoginFormControl[] = [
     placeholder: "",
     type: "password",
   },
-]
+];
